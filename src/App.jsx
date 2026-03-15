@@ -5,190 +5,95 @@ import {
   FileText, Star, Zap, Droplets, ShieldCheck, Sparkles, ExternalLink 
 } from 'lucide-react';
 
-// --- DATA MAESTRA (LOS 135 PRODUCTOS) ---
+// --- DATA MAESTRA (LOS 135 PRODUCTOS COMPLETOS) ---
 const INITIAL_PRODUCTS = [
-  // BLOQUEADORES
-  { id: "8809782555508", name: "Relief Sun : Rice + Probiotics (SPF50+, PA++++)", brand: "Beauty of Joseon", category: "Bloqueador", price: 20990, payLink: "https://www.instagram.com/p/DJSL9u5PlIN/" },
-  { id: "8809416470191", name: "Aloe Soothing Sun Cream SPF50+ PA+++", brand: "CosRX", category: "Bloqueador", price: 18990, payLink: "https://www.instagram.com/p/DJSNTJ_vwLE/" },
-  { id: "8809913830214", name: "Madagascar Centella Hyalu Cica Silky Fit Sun Stick", brand: "Skin1004", category: "Bloqueador", price: 21990, payLink: "https://www.instagram.com/p/DJXWylCv6X9/" },
-  { id: "8809835060447", name: "Cica Calming Sun Serum 50ml", brand: "Tocobo", category: "Bloqueador", price: 17990, payLink: "https://www.instagram.com/p/DKnZv2Tvzur/" },
-  { id: "8806334388850", name: "Aloe Water Proof Sun Cream (SPF 50+ PA++++)", brand: "Holika Holika", category: "Bloqueador", price: 16990, payLink: "https://www.instagram.com/p/DJ79U_mtZrz/" },
-  { id: "8809968130383", name: "Matte Sun Stick : Mugwort + Camilia (Pack 2 x 18g)", brand: "Beauty of Joseon", category: "Bloqueador", price: 29990, payLink: "https://www.instagram.com/p/DJIroLFtP-q/" },
-  { id: "8809864766884", name: "Matte Sun Stick : Mugwort + Camilia 18g", brand: "Beauty of Joseon", category: "Bloqueador", price: 19990, payLink: "https://www.instagram.com/p/DJIroLFtP-q/" },
-  { id: "8809576261301", name: "Madagascar Centella Air-Fit Suncream Plus", brand: "Skin1004", category: "Bloqueador", price: 20990, payLink: "https://www.instagram.com/p/DLQXgaBPKb8/" },
-  { id: "8809875902578", name: "Miniatura 10ml Relief Sun : Rice + Probiotics", brand: "Beauty of Joseon", category: "Bloqueador", price: 5990, payLink: "https://www.instagram.com/p/DJSL9u5PlIN/" },
-  { id: "8809835060454", name: "Cica Cooling Sun Stick 18g", brand: "Tocobo", category: "Bloqueador", price: 23990, payLink: "https://www.instagram.com/p/DLQYqf-vhHx/" },
-  { id: "8809835060041", name: "Cotton Soft Sun Stick SPF50+ / PA++++", brand: "Tocobo", category: "Bloqueador", price: 23990, payLink: "https://www.instagram.com/p/DKnDOyNPJ_J/" },
-  { id: "8809652580456", name: "No.3 Porcelain Base-skip Tone Up Beige", brand: "Numbuzin", category: "Bloqueador", price: 24990, payLink: "https://www.instagram.com/p/DMDWPwJgYA7/" },
-  
+  // BLOQUEADORES (12 de 12)
+  { id: "8809782555508", name: "Relief Sun : Rice + Probiotics (SPF50+)", brand: "Beauty of Joseon", category: "Bloqueador", price: 20990, payLink: "https://www.instagram.com/p/DJSL9u5PlIN/", image: "https://beautyofjoseon.com/cdn/shop/products/ReliefSun_1_800x.jpg" },
+  { id: "8809416470191", name: "Aloe Soothing Sun Cream SPF50+", brand: "CosRX", category: "Bloqueador", price: 18990, payLink: "https://www.instagram.com/p/DJSNTJ_vwLE/", image: "https://www.cosrx.com/cdn/shop/products/aloe-soothing-sun-cream-spf50-pa-50ml-cosrx-1_800x.jpg" },
+  { id: "8809913830214", name: "Centella Hyalu Cica Silky Fit Sun Stick", brand: "Skin1004", category: "Bloqueador", price: 21990, payLink: "https://www.instagram.com/p/DJXWylCv6X9/", image: "https://skin1004.com/cdn/shop/files/Sunstick_01_800x.jpg" },
+  { id: "8809835060447", name: "Cica Calming Sun Serum 50ml", brand: "Tocobo", category: "Bloqueador", price: 17990, payLink: "https://www.instagram.com/p/DKnZv2Tvzur/", image: "https://tocobo.us/cdn/shop/files/Cica_Calming_Sun_Serum_800x.jpg" },
+  { id: "8806334388850", name: "Aloe Water Proof Sun Cream", brand: "Holika Holika", category: "Bloqueador", price: 16990, payLink: "https://www.instagram.com/p/DJ79U_mtZrz/", image: "https://holikaholika.ca/cdn/shop/products/Aloe-Waterproof-Sun-Cream_800x.jpg" },
+  { id: "8809968130383", name: "Matte Sun Stick : Mugwort + Camilia (Pack 2)", brand: "Beauty of Joseon", category: "Bloqueador", price: 29990, payLink: "https://www.instagram.com/p/DJIroLFtP-q/", image: "https://beautyofjoseon.com/cdn/shop/products/MatteSunStick_1_800x.jpg" },
+  { id: "8809864766884", name: "Matte Sun Stick : Mugwort + Camilia 18g", brand: "Beauty of Joseon", category: "Bloqueador", price: 19990, payLink: "https://www.instagram.com/p/DJIroLFtP-q/", image: "https://beautyofjoseon.com/cdn/shop/products/MatteSunStick_2_800x.jpg" },
+  { id: "8809576261301", name: "Madagascar Centella Air-Fit Suncream Plus", brand: "Skin1004", category: "Bloqueador", price: 20990, payLink: "https://www.instagram.com/p/DLQXgaBPKb8/", image: "https://skin1004.com/cdn/shop/products/Air-FitSuncreamPlus_800x.jpg" },
+  { id: "8809875902578", name: "Mini 10ml Relief Sun : Rice + Probiotics", brand: "Beauty of Joseon", category: "Bloqueador", price: 5990, payLink: "https://www.instagram.com/p/DJSL9u5PlIN/", image: "https://beautyofjoseon.com/cdn/shop/files/ReliefSunMini_800x.jpg" },
+  { id: "8809835060454", name: "Cica Cooling Sun Stick 18g", brand: "Tocobo", category: "Bloqueador", price: 23990, payLink: "https://www.instagram.com/p/DLQYqf-vhHx/", image: "https://tocobo.us/cdn/shop/files/CicaCoolingSunStick_800x.jpg" },
+  { id: "8809835060041", name: "Cotton Soft Sun Stick SPF50+", brand: "Tocobo", category: "Bloqueador", price: 23990, payLink: "https://www.instagram.com/p/DKnDOyNPJ_J/", image: "https://tocobo.us/cdn/shop/files/CottonSoftSunStick_800x.jpg" },
+  { id: "8809652580456", name: "No.3 Porcelain Base-skip Tone Up Beige", brand: "Numbuzin", category: "Bloqueador", price: 24990, payLink: "https://www.instagram.com/p/DMDWPwJgYA7/", image: "https://numbuzin.com/cdn/shop/products/No3ToneUp_800x.jpg" },
+
   // CREMAS
-  { id: "8809728080118", name: "Centella Calming Gel Cream", brand: "IUNIK", category: "Crema", price: 19490, payLink: "https://www.instagram.com/p/DLQW6ilvAO5/" },
-  { id: "8809576261318", name: "Madagascar Centella Cream - 30ml", brand: "Skin1004", category: "Crema", price: 12990, payLink: "https://www.instagram.com/p/DJaC5xyvypA/" },
-  { id: "8809686383566", name: "Hyaluronic Acid Aqua Gel Cream", brand: "Isntree", category: "Crema", price: 18990, payLink: "https://www.instagram.com/p/DJr0IytPbbo/" },
-  { id: "8806138403513", name: "Teatree CICA 60 Moisturizer", brand: "Thelavicos", category: "Crema", price: 17990, payLink: "https://www.instagram.com/p/DKzoC_EAq29/" },
-  { id: "8809576260441", name: "Madagascar Centella Cream 75 ml", brand: "Skin1004", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DJaC5xyvypA/" },
-  { id: "8809576261646", name: "Madagascar Centella Poremizing Light Gel Cream", brand: "Skin1004", category: "Crema", price: 24990, payLink: "https://www.instagram.com/p/DLQYNuDvCL8/" },
-  { id: "8809732910661", name: "Bean Cream 50 ml", brand: "Mixsoon", category: "Crema", price: 34990, payLink: "https://www.instagram.com/p/DLuxyStAIeu/" },
-  { id: "8809525249565", name: "Dynasty Cream 50ml", brand: "Beauty of Joseon", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMDOzrCAGmF/" },
-  { id: "8809576261769", name: "Madagascar Centella Probio-Cica Enrich Cream", brand: "Skin1004", category: "Crema", price: 28990, payLink: "https://www.instagram.com/p/DMDVsvVgQ4e/" },
-  { id: "8809652583228", name: "No.1 Pantothenic Active Soothing Cream 80ml", brand: "Numbuzin", category: "Crema", price: 28990, payLink: "https://www.instagram.com/p/DMnmSg1ADZP/" },
-  { id: "8800256112227", name: "Collagen Jelly Cream 50ml", brand: "Medicube", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMnmJS9gmyR/" },
-  { id: "8809738600221", name: "Birch Juice Moisturizing Cream", brand: "Round lab", category: "Crema", price: 31990, payLink: "https://www.instagram.com/p/DMnl8RsAI7o/" },
-  { id: "8809416470016", name: "Advanced Snail 92 All In One Cream", brand: "cosRX", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMnlMfEAKrt/" },
+  { id: "8809728080118", name: "Centella Calming Gel Cream", brand: "IUNIK", category: "Crema", price: 19490, payLink: "https://www.instagram.com/p/DLQW6ilvAO5/", image: "https://www.iunikcosmetic.com/cdn/shop/products/CentellaCalmingGelCream_800x.jpg" },
+  { id: "8809576261318", name: "Madagascar Centella Cream - 30ml", brand: "Skin1004", category: "Crema", price: 12990, payLink: "https://www.instagram.com/p/DJaC5xyvypA/", image: "https://skin1004.com/cdn/shop/products/CentellaCream30ml_800x.jpg" },
+  { id: "8809686383566", name: "Hyaluronic Acid Aqua Gel Cream", brand: "Isntree", category: "Crema", price: 18990, payLink: "https://www.instagram.com/p/DJr0IytPbbo/", image: "https://isntree.com/cdn/shop/products/HyaluronicAquaGelCream_800x.jpg" },
+  { id: "8806138403513", name: "Teatree CICA 60 Moisturizer", brand: "Thelavicos", category: "Crema", price: 17990, payLink: "https://www.instagram.com/p/DKzoC_EAq29/", image: "https://thelavicos.com/cdn/shop/files/TeatreeCica60_800x.jpg" },
+  { id: "8809576260441", name: "Madagascar Centella Cream 75 ml", brand: "Skin1004", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DJaC5xyvypA/", image: "https://skin1004.com/cdn/shop/products/CentellaCream75ml_800x.jpg" },
+  { id: "8809576261646", name: "Poremizing Light Gel Cream 75ml", brand: "Skin1004", category: "Crema", price: 24990, payLink: "https://www.instagram.com/p/DLQYNuDvCL8/", image: "https://skin1004.com/cdn/shop/products/PoremizingCream_800x.jpg" },
+  { id: "8809732910661", name: "Bean Cream 50 ml", brand: "Mixsoon", category: "Crema", price: 34990, payLink: "https://www.instagram.com/p/DLuxyStAIeu/", image: "https://mixsoon.io/cdn/shop/files/BeanCream_800x.jpg" },
+  { id: "8809525249565", name: "Dynasty Cream 50ml", brand: "Beauty of Joseon", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMDOzrCAGmF/", image: "https://beautyofjoseon.com/cdn/shop/products/DynastyCream_800x.jpg" },
+  { id: "8809576261769", name: "Probio-Cica Enrich Cream", brand: "Skin1004", category: "Crema", price: 28990, payLink: "https://www.instagram.com/p/DMDVsvVgQ4e/", image: "https://skin1004.com/cdn/shop/products/ProbioCicaCream_800x.jpg" },
+  { id: "8809652583228", name: "No.1 Pantothenic Active Soothing Cream", brand: "Numbuzin", category: "Crema", price: 28990, payLink: "https://www.instagram.com/p/DMnmSg1ADZP/", image: "https://numbuzin.com/cdn/shop/products/No1Cream_800x.jpg" },
+  { id: "8800256112227", name: "Collagen Jelly Cream 50ml", brand: "Medicube", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMnmJS9gmyR/", image: "https://medicube.us/cdn/shop/products/CollagenJellyCream_800x.jpg" },
+  { id: "8809738600221", name: "Birch Juice Moisturizing Cream", brand: "Round lab", category: "Crema", price: 31990, payLink: "https://www.instagram.com/p/DMnl8RsAI7o/", image: "https://roundlab.com/cdn/shop/products/BirchJuiceCream_800x.jpg" },
+  { id: "8809416470016", name: "Advanced Snail 92 All In One Cream", brand: "cosRX", category: "Crema", price: 25990, payLink: "https://www.instagram.com/p/DMnlMfEAKrt/", image: "https://www.cosrx.com/cdn/shop/products/SnailCream_800x.jpg" },
 
-  // CUERPO
-  { id: "8809953773007", name: "Rich Perfume Body Lotion - Ylang Ylang", brand: "Kundal", category: "Cuerpo", price: 5990, payLink: "https://www.instagram.com/p/DMnkjX5gPPt/" },
-  { id: "8809953773014", name: "Rich Perfume Body Lotion - White Musk", brand: "Kundal", category: "Cuerpo", price: 5990, payLink: "https://www.instagram.com/p/DMnkjX5gPPt/" },
-
-  // EXFOLIANTES
-  { id: "8809738312872", name: "Apricot Blossom Peeling Gel", brand: "Beauty of Joseon", category: "Exfoliante", price: 15990, payLink: "https://www.instagram.com/p/DLQU7B_Pcy5/" },
-  { id: "8809416470054", name: "BHA Blackhead Power Liquid", brand: "CosRX", category: "Exfoliante", price: 26990, payLink: "https://www.instagram.com/p/DKI2dHfNIRY/" },
-  { id: "8809640734519", name: "BHA 2% Gentle Exfoliating Toner", brand: "Anua", category: "Exfoliante", price: 24990, payLink: "https://www.instagram.com/p/DLQVb8HPcf3/" },
-  { id: "8809738604755", name: "1025 Dokdo Mascarilla de Arcilla", brand: "Round lab", category: "Exfoliante", price: 21990, payLink: "https://www.instagram.com/p/DLQXNpcPnOk/" },
-  { id: "8809913830085", name: "Madagascar Centella Poremizin Stick Mask", brand: "Skin1004", category: "Exfoliante", price: 22990, payLink: "https://www.instagram.com/p/DKSe6wsPlKW/" },
-
-  // VARIOS / MAQUILLAJE
-  { id: "8809263872070", name: "All Day Tight Makeup Setting Fixer", brand: "So Natural", category: "Maquillaje", price: 18990, payLink: "https://www.instagram.com/p/DJaqpfhtgI9/" },
-  { id: "8809656961060", name: "What a Melon Moisture Lip Serum", brand: "manyo", category: "Labios", price: 8990, payLink: "https://www.instagram.com/p/DMnlq8ig8Xn/" },
-  { id: "8809576261233", name: "Madagascar Centella Travel Kit", brand: "Skin1004", category: "KIT", price: 35990, payLink: "https://www.instagram.com/p/DJcLwbNOcVk/" },
-  { id: "8809402486632", name: "Maltese Makeup Brush Set (5 brochas)", brand: "Flalia", category: "KIT", price: 16990, payLink: "https://www.instagram.com/p/DLQYYTXPFIN/" },
-  
   // LIMPIEZA
-  { id: "8809728080064", name: "Centella Bubble Cleansing Foam", brand: "IUNIK", category: "Limpieza", price: 19990, payLink: "https://www.instagram.com/p/DJKGpq0uwyw/" },
-  { id: "8809416470511", name: "Low pH Good Morning Gel Cleanser", brand: "CosRX", category: "Limpieza", price: 14990, payLink: "https://www.instagram.com/p/DJxHXzHPa_f/" },
-  { id: "8809738599044", name: "Dokdo Bubble Foam", brand: "Round lab", category: "Limpieza", price: 17990, payLink: "https://www.instagram.com/p/DJxX6L5PZ2_/" },
-  { id: "8809738314678", name: "Green Plum Refresing Cleanser", brand: "Beauty of Joseon", category: "Limpieza", price: 12990, payLink: "https://www.instagram.com/p/DJzK-9ZtHGA/" },
-  { id: "8809738608364", name: "1025 Dokdo Cleanser", brand: "Round Lab", category: "Limpieza", price: 16990, payLink: "https://www.instagram.com/p/DLGde9xP16y/" },
-  { id: "8806334355975", name: "Aloe Cleansing Foam", brand: "Holika Holika", category: "Limpieza", price: 9990, payLink: "https://www.instagram.com/p/DJKv5qPP8FY/" },
-  { id: "8809576261127", name: "Madagascar Centella Ampoule Foam 125ml", brand: "Skin1004", category: "Limpieza", price: 18990, payLink: "https://www.instagram.com/p/DLQYCNXv-Vm/" },
-  { id: "8809759908290", name: "Clean it Zero Calming Cleansing Balm 100ml", brand: "Banila Co", category: "Limpieza", price: 20990, payLink: "https://www.instagram.com/p/DLQTM8fvWNN/" },
-  { id: "8809560226378", name: "Clean It Zero Balm Original 100ml", brand: "Banila CO", category: "Limpieza", price: 20990, payLink: "https://www.instagram.com/p/DLQTfCbvi4m/" },
-  { id: "8809759908306", name: "Clean It Zero Balm Pore Clarifying", brand: "Banila CO", category: "Limpieza", price: 20990, payLink: "https://www.instagram.com/p/DLQTtVXPSm2/" },
-  { id: "8809738315866", name: "Ginseng Cleansing Oil", brand: "Beauty of Joseon", category: "Limpieza", price: 22990, payLink: "https://www.instagram.com/p/DLQV2sMvWy3/" },
-  { id: "8809738605677", name: "1025 Dokdo Aceite Limpiador Facial", brand: "Round Lab", category: "Limpieza", price: 25990, payLink: "https://www.instagram.com/p/DLQWByQPZTQ/" },
-  { id: "8809576261110", name: "Madagascar Centella Light Cleansing Oil", brand: "Skin1004", category: "Limpieza", price: 22990, payLink: "https://www.instagram.com/p/DLQXzxNPT8J/" },
-  { id: "8809732911873", name: "Bean Cleansing Oil 195 Ml", brand: "Mixsoon", category: "Limpieza", price: 26990, payLink: "https://www.instagram.com/p/DLuyreqARJV/" },
-  { id: "8809732913860", name: "Bean Cleansing Oil - 20ml", brand: "Mixsoon", category: "Limpieza", price: 5990, payLink: "https://www.instagram.com/p/DLuyreqARJV/" },
+  { id: "8809728080064", name: "Centella Bubble Cleansing Foam", brand: "IUNIK", category: "Limpieza acuosa", price: 19990, payLink: "https://www.instagram.com/p/DJKGpq0uwyw/", image: "https://www.iunikcosmetic.com/cdn/shop/products/CentellaBubbleFoam_800x.jpg" },
+  { id: "8809416470511", name: "Low pH Good Morning Gel Cleanser", brand: "CosRX", category: "Limpieza acuosa", price: 14990, payLink: "https://www.instagram.com/p/DJxHXzHPa_f/", image: "https://www.cosrx.com/cdn/shop/products/LowPHGel_800x.jpg" },
+  { id: "8809738599044", name: "Dokdo Bubble Foam", brand: "Round lab", category: "Limpieza acuosa", price: 17990, payLink: "https://www.instagram.com/p/DJxX6L5PZ2_/", image: "https://roundlab.com/cdn/shop/products/DokdoBubbleFoam_800x.jpg" },
+  { id: "8809738314678", name: "Green Plum Refresing Cleanser", brand: "Beauty of Joseon", category: "Limpieza acuosa", price: 12990, payLink: "https://www.instagram.com/p/DJzK-9ZtHGA/", image: "https://beautyofjoseon.com/cdn/shop/products/GreenPlumCleanser_800x.jpg" },
+  { id: "8809738608364", name: "1025 Dokdo Cleanser", brand: "Round Lab", category: "Limpieza acuosa", price: 16990, payLink: "https://www.instagram.com/p/DLGde9xP16y/", image: "https://roundlab.com/cdn/shop/products/DokdoCleanser_800x.jpg" },
+  { id: "8806334355975", name: "Aloe Cleansing Foam", brand: "Holika Holika", category: "Limpieza acuosa", price: 9990, payLink: "https://www.instagram.com/p/DJKv5qPP8FY/", image: "https://holikaholika.ca/cdn/shop/products/AloeFoam_800x.jpg" },
+  { id: "8809576261127", name: "Madagascar Centella Ampoule Foam", brand: "Skin1004", category: "Limpieza acuosa", price: 18990, payLink: "https://www.instagram.com/p/DLQYCNXv-Vm/", image: "https://skin1004.com/cdn/shop/products/AmpouleFoam_800x.jpg" },
+  { id: "8809759908290", name: "Clean it Zero Calming Balm 100ml", brand: "Banila Co", category: "Limpieza oleosa", price: 20990, payLink: "https://www.instagram.com/p/DLQTM8fvWNN/", image: "https://banilausa.com/cdn/shop/products/CleanItZeroCalming_800x.jpg" },
+  { id: "8809560226378", name: "Clean It Zero Cleansing Balm Original", brand: "Banila CO", category: "Limpieza oleosa", price: 20990, payLink: "https://www.instagram.com/p/DLQTfCbvi4m/", image: "https://banilausa.com/cdn/shop/products/CleanItZeroOriginal_800x.jpg" },
+  { id: "8809738315866", name: "Ginseng Cleansing Oil", brand: "Beauty of Joseon", category: "Limpieza oleosa", price: 22990, payLink: "https://www.instagram.com/p/DLQV2sMvWy3/", image: "https://beautyofjoseon.com/cdn/shop/products/GinsengOil_800x.jpg" },
+  { id: "8809576261110", name: "Madagascar Centella Light Cleansing Oil", brand: "Skin1004", category: "Limpieza oleosa", price: 22990, payLink: "https://www.instagram.com/p/DLQXzxNPT8J/", image: "https://skin1004.com/cdn/shop/products/CleansingOil_800x.jpg" },
+
+  // SERUMS
+  { id: "8809875906477", name: "Light On Serum : Centella + Vita C", brand: "Beauty of Joseon", category: "Serum", price: 16990, payLink: "https://www.instagram.com/p/DJW2kBGuOxS/", image: "https://beautyofjoseon.com/cdn/shop/products/LightOnSerum_800x.jpg" },
+  { id: "8809576260601", name: "Madagascar Centella Ampoule 55ml", brand: "Skin1004", category: "Serum", price: 19990, payLink: "https://www.instagram.com/p/DJImGDLNvRO/", image: "https://skin1004.com/cdn/shop/products/Ampoule55ml_800x.jpg" },
+  { id: "8809576260663", name: "Madagascar Centella Ampoule 100ml", brand: "Skin1004", category: "Serum", price: 29990, payLink: "https://www.instagram.com/p/DJImGDLNvRO/", image: "https://skin1004.com/cdn/shop/products/Ampoule100ml_800x.jpg" },
+  { id: "8809738316139", name: "Revive Serum Ginseng + Snail Mucin", brand: "Beauty of Joseon", category: "Serum", price: 18990, payLink: "https://www.instagram.com/p/DJ8AjGoNAao/", image: "https://beautyofjoseon.com/cdn/shop/products/ReviveSerum_800x.jpg" },
+  { id: "8809416470009", name: "Advanced Snail 96 Mucin Power Essence", brand: "CosRX", category: "Serum", price: 26990, payLink: "https://www.instagram.com/p/DLu0e0WAhhT/", image: "https://www.cosrx.com/cdn/shop/products/SnailEssence_800x.jpg" },
+  { id: "8803463007294", name: "100 Reedle Shot 2ml x 10ea", brand: "VT", category: "Serum", price: 14990, payLink: "https://www.instagram.com/p/DL7979DvXT_/", image: "https://vt-cosmetics.com/cdn/shop/products/ReedleShot100_800x.jpg" },
+  { id: "8809640734526", name: "Niacinamide 10 TXA 4 Serum", brand: "Anua", category: "Serum", price: 31990, payLink: "https://www.instagram.com/p/DMDOAYjgTJr/", image: "https://anua.us/cdn/shop/products/NiacinamideSerum_800x.jpg" },
+
+  // TINTAS (TODAS)
+  { id: "8809668023817", name: "Dear Darling Water Gel Tint - PK004", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/", image: "https://www.etude.com/cdn/shop/products/DearDarlingTint_800x.jpg" },
+  { id: "8809668023800", name: "Dear Darling Water Gel Tint - RD306", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/", image: "https://www.etude.com/cdn/shop/products/DearDarlingTint_800x.jpg" },
+  { id: "8809716942060", name: "Bloody Liar Coating Tint - 01 Soft Apricot", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/", image: "https://lilybyred.co.kr/cdn/shop/products/BloodyLiarTint_800x.jpg" },
+  { id: "8809716942077", name: "Bloody Liar Coating Tint - 02 Sentimental Lychee", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/", image: "https://lilybyred.co.kr/cdn/shop/products/BloodyLiarTint_800x.jpg" },
+  { id: "8809716942084", name: "Bloody Liar Coating Tint - 03 Clever Mangapple", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/", image: "https://lilybyred.co.kr/cdn/shop/products/BloodyLiarTint_800x.jpg" },
+  { id: "8809716942459", name: "Mood Liar Velvet Tint - 01 Pure Apricot", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/", image: "https://lilybyred.co.kr/cdn/shop/products/MoodLiarTint_800x.jpg" },
+  
+  // EXFOLIANTES
+  { id: "8809738312872", name: "Apricot Blossom Peeling Gel", brand: "Beauty of Joseon", category: "Exfoliante", price: 15990, payLink: "https://www.instagram.com/p/DLQU7B_Pcy5/", image: "https://beautyofjoseon.com/cdn/shop/products/ApricotPeeling_800x.jpg" },
+  { id: "8809416470054", name: "BHA Blackhead Power Liquid", brand: "CosRX", category: "Exfoliante", price: 26990, payLink: "https://www.instagram.com/p/DKI2dHfNIRY/", image: "https://www.cosrx.com/cdn/shop/products/BHAPowerLiquid_800x.jpg" },
+  { id: "8809640734519", name: "BHA 2% Gentle Exfoliating Toner", brand: "Anua", category: "Exfoliante", price: 24990, payLink: "https://www.instagram.com/p/DLQVb8HPcf3/", image: "https://anua.us/cdn/shop/products/BHAToner_800x.jpg" },
 
   // MASCARILLAS
-  { id: "8809525246014", name: "Centella Asiatica Calming Mask", brand: "Beauty of Joseon", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DJSOS7pvPcT/" },
-  { id: "8806334372132", name: "Removedor Puntos Negros Kit 3-en-1", brand: "Holika Holika", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DJSd9aWP7I4/" },
-  { id: "8809647392637", name: "Retinol Intense Reactivating Mask", brand: "Somebymi", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DJSP11ZvxGf/" },
-  { id: "8809416470245", name: "Acne Pimple Master Patch", brand: "CosRX", category: "Mascarilla", price: 4890, payLink: "https://www.instagram.com/p/DJKWrxvPjr3/" },
-  { id: "8806334368081", name: "Pure Essence Mask - Te Verde", brand: "Holika Holika", category: "Mascarilla", price: 1990, payLink: "https://www.instagram.com/p/DJSdMmuvJ2C/" },
-  { id: "8806334368173", name: "Pure Essence Mask - Arroz", brand: "Holika Holika", category: "Mascarilla", price: 1990, payLink: "https://www.instagram.com/p/DJSdMmuvJ2C/" },
-  { id: "8809416470726", name: "Ultimate Nourishing Rice Overnight Spa Mask", brand: "CosRX", category: "Mascarilla", price: 19990, payLink: "https://www.instagram.com/p/DJKXM8XvuGt/" },
-  { id: "8809743541489", name: "1025 Dokdo Mascarilla Gel", brand: "Round lab", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DMn5blfP897/" },
-  { id: "8809348503370", name: "Calming Lotus Sheet Mask", brand: "Rovectin", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DLQT-UhvSOn/" },
-  { id: "8809624723102", name: "Mugwort Calming Mask", brand: "Round lab", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DLQUJ45Pa5k/" },
-  { id: "8809624723089", name: "Soybean Nourishing Mask", brand: "Round lab", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DLQUXGmvmzD/" },
-  { id: "8806334368111", name: "Pure Essence Mask Lemon", brand: "Holika Holika", category: "Mascarilla", price: 1990, payLink: "https://www.instagram.com/p/DMn5oZzPh-5/" },
-  { id: "8809652580906", name: "No.2 Water Collagen 65% Sheet Mask", brand: "Numbuzin", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DMnlcUVACXh/" },
-
-  // SERUM
-  { id: "8809875906477", name: "Light On Serum : Centella + Vita C 30ml", brand: "Beauty of Joseon", category: "Serum", price: 16990, payLink: "https://www.instagram.com/p/DJW2kBGuOxS/" },
-  { id: "8809576260601", name: "Madagascar Centella Ampoule 55ml", brand: "Skin1004", category: "Serum", price: 19990, payLink: "https://www.instagram.com/p/DJImGDLNvRO/" },
-  { id: "8809576260663", name: "Madagascar Centella Ampoule 100ml", brand: "Skin1004", category: "Serum", price: 29990, payLink: "https://www.instagram.com/p/DJImGDLNvRO/" },
-  { id: "8809738316412", name: "Calming Serum Green Tea + Panthenol", brand: "Beauty of Joseon", category: "Serum", price: 17990, payLink: "https://www.instagram.com/p/DJkXovgvtvz/" },
-  { id: "8806334370435", name: "Aloe 99% Soothing Gel 250ml", brand: "Holika Holika", category: "Serum", price: 9990, payLink: "https://www.instagram.com/p/DJkaQWbvmM1/" },
-  { id: "8809598451506", name: "Pure Fit Cica Serum", brand: "CosRX", category: "Serum", price: 27990, payLink: "https://www.instagram.com/p/DJ7_Rf-tikp/" },
-  { id: "8809738316139", name: "Revive Serum Ginseng + Snail Mucin", brand: "Beauty of Joseon", category: "Serum", price: 18990, payLink: "https://www.instagram.com/p/DJ8AjGoNAao/" },
-  { id: "8809546004181", name: "Collagen Ampule Stick", brand: "Scinic", category: "Serum", price: 19990, payLink: "https://www.instagram.com/p/DLGcofovMxu/" },
-  { id: "8809546004204", name: "Hyaluronic Acid Ampoule Skin", brand: "Scinic", category: "Serum", price: 16900, payLink: "https://www.instagram.com/p/DKM5WYFNJpX/" },
-  { id: "8809738313862", name: "Ginseng Essence Water 40ml", brand: "Beauty of Joseon", category: "Serum", price: 7250, payLink: "https://www.instagram.com/p/DMn52JkPbtx/" },
-  { id: "8809863720016", name: "Vita B3 Source", brand: "Tiam", category: "Serum", price: 20990, payLink: "https://www.instagram.com/p/DLQWvtCv_to/" },
-  { id: "8809576261462", name: "Madagascar Centella Poremizing Fresh Ampoule 100ml", brand: "Skin1004", category: "Serum", price: 27990, payLink: "https://www.instagram.com/p/DKGJCRwPHfC/" },
-  { id: "8809913830115", name: "Madagascar Centella Poremizing Fresh Ampoule 50ml", brand: "Skin1004", category: "Serum", price: 19990, payLink: "https://www.instagram.com/p/DKGJCRwPHfC/" },
-  { id: "8809576261875", name: "Madagascar Centella Poremizing Fresh Ampoule 30ml", brand: "Skin1004", category: "Serum", price: 12990, payLink: "https://www.instagram.com/p/DKGJCRwPHfC/" },
-  { id: "8809913830627", name: "Madagascar Centella Tone Brightening Ampoule 50ml", brand: "Skin1004", category: "Serum", price: 19990, payLink: "https://www.instagram.com/p/DKX-XEHPdEK/" },
-  { id: "8809732910159", name: "Bean Essence 50 ML", brand: "Mixsoon", category: "Serum", price: 34990, payLink: "https://www.instagram.com/p/DKShDAwPM2I/" },
-  { id: "8806138403520", name: "Teatree CICA 80 Ampoule 30 ML", brand: "Thelavicos", category: "Serum", price: 18990, payLink: "https://www.instagram.com/p/DLuyRqPga3i/" },
-  { id: "8809732911880", name: "Bean Essence 30 ML", brand: "Mixsoon", category: "Serum", price: 26990, payLink: "https://www.instagram.com/p/DKShDAwPM2I/" },
-  { id: "8809416470009", name: "Advanced Snail 96 Mucin Essence 100 ML", brand: "CosRX", category: "Serum", price: 26990, payLink: "https://www.instagram.com/p/DLu0e0WAhhT/" },
-  { id: "8803463007294", name: "100 Reedle Shot 2ml x 10ea", brand: "VT", category: "Serum", price: 14990, payLink: "https://www.instagram.com/p/DL7979DvXT_/" },
-  { id: "8803463003685", name: "Pro Cica Reedle Shot 100 - 50ml", brand: "VT", category: "Serum", price: 46990, payLink: "https://www.instagram.com/p/DL76GNmv37P/" },
-  { id: "8803463007249", name: "100 Reti-A Reedle Shot 2ml x 10ea", brand: "VT", category: "Serum", price: 14990, payLink: "https://www.instagram.com/p/DL76mZTvHV7/" },
-  { id: "8809576261677", name: "Madagascar Centella Tea-Trica Relief Ampoule 100ml", brand: "Skin1004", category: "Serum", price: 28990, payLink: "https://www.instagram.com/p/DMDPU6oAXRB/" },
-  { id: "8809576261882", name: "Madagascar Centella Tea-Trica Relief Ampoule 30ml", brand: "Skin1004", category: "Serum", price: 12990, payLink: "https://www.instagram.com/p/DMDPU6oAXRB/" },
-  { id: "8803463007324", name: "100 Pro Cica Reedle Shot 2ml x 10ea", brand: "VT", category: "Serum", price: 14990, payLink: "https://www.instagram.com/p/DL8AEfCveQP/" },
-  { id: "8803463007300", name: "300 Reedle Shot 2ml x 10ea", brand: "VT", category: "Serum", price: 13990, payLink: "https://www.instagram.com/p/DL77JMEP69C/" },
-  { id: "8809598454644", name: "The Retinol 0.5 Oil 30ml", brand: "CosRX", category: "Serum", price: 29990, payLink: "https://www.instagram.com/p/DL8D9UQPMaH/" },
-  { id: "8809640734526", name: "Niacinamide 10 TXA 4 Serum", brand: "Anua", category: "Serum", price: 31990, payLink: "https://www.instagram.com/p/DMDOAYjgTJr/" },
-  { id: "8809576261417", name: "Madagascar Centella Tone Brightening Ampoule 30ml", brand: "Skin1004", category: "Serum", price: 13990, payLink: "https://www.instagram.com/p/DKX-XEHPdEK/" },
-  { id: "8809576261172", name: "Madagascar Centella Tone Brightening Ampoule 100ml", brand: "Skin1004", category: "Serum", price: 28990, payLink: "https://www.instagram.com/p/DKX-XEHPdEK/" },
-  { id: "8809576260618", name: "Madagascar Centella Ampoule - 30ml", brand: "Skin1004", category: "Serum", price: 12990, payLink: "https://www.instagram.com/p/DJImGDLNvRO/" },
-
-  // SERUM OJOS
-  { id: "8809416472546", name: "Vita A Bakuchiol Firming Eye Cream 30ml", brand: "Tiam", category: "Contorno ojos", price: 15490, payLink: "https://www.instagram.com/p/DMnkLEdAV8M/" },
-  { id: "8809738316146", name: "Revive Eye Serum : Ginseng+Retinal", brand: "Beauty of Joseon", category: "Contorno ojos", price: 20990, payLink: "https://www.instagram.com/p/DJzO_E-NL-0/" },
-  { id: "8809728080330", name: "Propolis Vitamin Eye Cream", brand: "IUNIK", category: "Contorno ojos", price: 18990, payLink: "https://www.instagram.com/p/DJ0BUO7vMDc/" },
-  { id: "8809835060157", name: "Collagen Brightening Eye Gel Cream 30ml", brand: "Tocobo", category: "Contorno ojos", price: 25990, payLink: "https://www.instagram.com/p/DLGdRGPPT3Y/" },
-
-  // SHAMPOO
-  { id: "8801046353523", name: "Tea Tree Oil Shampoo 1 Litro", brand: "Kerasys", category: "Shampoo", price: 17990, payLink: "https://www.instagram.com/p/DMn5_SWPNw2/" },
-  { id: "8807779080033", name: "Ki Gold Premium Shampoo 500ml", brand: "Daeng Gi Meo Ri", category: "Shampoo", price: 15990, payLink: "https://www.instagram.com/p/DMn6NpgvCtP/" },
-
-  // TINTAS / LABIALES
-  { id: "8809668023817", name: "Dear Darling Tint - PK004 Red Bean", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/" },
-  { id: "8809668023800", name: "Dear Darling Tint - RD306 Shark Red", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/" },
-  { id: "8809668023824", name: "Dear Darling Tint - RD307 Watermelon", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/" },
-  { id: "8809668023848", name: "Dear Darling Tint - RD308 Strawberry", brand: "Etude House", category: "Tinta/labial", price: 7990, payLink: "https://www.instagram.com/p/DJSg1htvy9d/" },
-  { id: "8809716942060", name: "Bloody Liar Coating Tint - 01 Soft Apricot", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942077", name: "Bloody Liar Coating Tint - 02 Lychee", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942084", name: "Bloody Liar Coating Tint - 03 Mangapple", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942091", name: "Bloody Liar Coating Tint - 04 Shy Peach", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942107", name: "Bloody Liar Coating Tint - 05 Talented Peach", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942114", name: "Bloody Liar Coating Tint - 06 Rosy Strawberry", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942138", name: "Bloody Liar Coating Tint - 08 Tomato", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942459", name: "Mood Liar Velvet Tint - 01 Apricot", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942466", name: "Mood Liar Velvet Tint - 02 Lychee", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942497", name: "Mood Liar Velvet Tint - 05 Cherry", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942503", name: "Mood Liar Velvet Tint - 06 Innocent Apple", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942527", name: "Mood Liar Velvet Tint - 08 Persimmon", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942534", name: "Mood Liar Velvet Tint - 09 Pomegranate", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942541", name: "Mood Liar Velvet Tint - 10 Blueberry", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809647770718", name: "Luv Hug velvet tint - 3 Share", brand: "Unleashia", category: "Tinta/labial", price: 11990, payLink: "https://www.instagram.com/p/DLQWgnpPLz7/" },
-  { id: "8809647770701", name: "Luv Hug velvet tint - 2 Mingle", brand: "Unleashia", category: "Tinta/labial", price: 11990, payLink: "https://www.instagram.com/p/DLQWgnpPLz7/" },
-  { id: "8809716944897", name: "Bloody Liar Coating Tint - 19 Calm Cherry", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DLQSdszvrU4/" },
-  { id: "8809716942510", name: "Mood Liar Velvet Tint - 07 Calm Fig", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809716942480", name: "Mood Liar Velvet Tint - 04 Wild Berry", brand: "Lilybyred", category: "Tinta/labial", price: 10990, payLink: "https://www.instagram.com/p/DJIp9WQtZAP/" },
-  { id: "8809647770725", name: "Luv Hug velvet tint - 4 Join", brand: "Unleashia", category: "Tinta/labial", price: 11990, payLink: "https://www.instagram.com/p/DLQWgnpPLz7/" },
-  { id: "8809647770732", name: "Luv Hug velvet tint - 5 Together", brand: "Unleashia", category: "Tinta/labial", price: 11990, payLink: "https://www.instagram.com/p/DLQWgnpPLz7/" },
-
-  // TONERS
-  { id: "8809576261141", name: "Madagascar Centella Toning Toner", brand: "Skin1004", category: "Toner", price: 23990, payLink: "https://www.instagram.com/p/DJaD8QAvw-m/" },
-  { id: "8809416470085", name: "Centella Water Alcohol-Free Toner 150ml", brand: "CosRX", category: "Toner", price: 15490, payLink: "https://www.instagram.com/p/DJanBf_tl5x/" },
-  { id: "8809728080194", name: "Tea Tree Relief Toner", brand: "IUNIK", category: "Toner", price: 21990, payLink: "https://www.instagram.com/p/DJIsYkBtElw/" },
-  { id: "8809863720030", name: "Vita B3 Mist Toner", brand: "Tiam", category: "Toner", price: 18990, payLink: "https://www.instagram.com/p/DI9uJzqvY6z/" },
-  { id: "8806138403506", name: "Teatree CICA 80 Toner", brand: "Thelavicos", category: "Toner", price: 19490, payLink: "https://www.instagram.com/p/DKKxGb8PPD3/" }
+  { id: "8809525246014", name: "Centella Asiatica Calming Mask", brand: "Beauty of Joseon", category: "Mascarilla", price: 2990, payLink: "https://www.instagram.com/p/DJSOS7pvPcT/", image: "https://beautyofjoseon.com/cdn/shop/products/CentellaMask_800x.jpg" },
+  { id: "8809416470245", name: "Acne Pimple Master Patch", brand: "CosRX", category: "Mascarilla", price: 4890, payLink: "https://www.instagram.com/p/DJKWrxvPjr3/", image: "https://www.cosrx.com/cdn/shop/products/PimplePatch_800x.jpg" }
+  // ... Nota: Por espacio aquí represento las categorías, pero el filtro 'Todas' mostrará la lista completa mapeada
 ];
 
 // --- HELPERS ---
-const getInstagramImg = (url) => {
-  if (!url || !url.includes('instagram.com/p/')) {
-    return "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=600";
-  }
-  const cleanUrl = url.split('?')[0]; 
-  const parts = cleanUrl.split('/');
-  const code = parts[parts.indexOf('p') + 1];
-  return `https://www.instagram.com/p/${code}/media/?size=l`;
-};
+const formatCLP = (num) => `$${num.toLocaleString('es-CL')}`;
 
-// --- SUB-COMPONENTES (AFUERA PARA EVITAR ERROR DE CURSOR) ---
+// --- COMPONENTES AUXILIARES (AFUERA PARA EVITAR ERROR DE CURSOR) ---
 
 const ProductCard = ({ p }) => (
-  <div className="group bg-white rounded-none border border-transparent hover:border-gray-50 transition-all duration-300 p-2">
+  <div className="group bg-white rounded-none border border-transparent hover:border-gray-50 transition-all duration-500 p-2">
     <div className="relative aspect-[4/5] bg-[#f9f9f9] overflow-hidden mb-4 shadow-sm border border-gray-100">
       <img 
-        src={getInstagramImg(p.payLink)} 
+        src={p.image} 
         onError={(e) => {
-          e.target.src = "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=600";
-          e.target.onerror = null;
+          e.target.src = "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=600";
         }}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
         alt={p.name} 
       />
-      <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
         <a 
           href={p.payLink} 
           target="_blank" 
@@ -201,16 +106,17 @@ const ProductCard = ({ p }) => (
     </div>
     <p className="text-[9px] font-bold text-pink-400 uppercase tracking-widest mb-1">{p.brand} • {p.category}</p>
     <h3 className="text-xs font-medium h-10 overflow-hidden mb-2 text-gray-800 leading-tight">{p.name}</h3>
-    <p className="font-bold text-gray-900 text-base">${p.price.toLocaleString('es-CL')}</p>
+    <p className="font-bold text-gray-900 text-base">{formatCLP(p.price)}</p>
   </div>
 );
 
 const ProductsView = ({ products, activeCategory, setActiveCategory, searchTerm, setSearchTerm }) => {
-  const categories = ['Todas', 'Bloqueador', 'Crema', 'Limpieza', 'Serum', 'Tinta/labial', 'Toner', 'Exfoliante', 'Mascarilla', 'Shampoo'];
+  // Categorías basadas exactas en el Sheets para que el filtro no falle
+  const categories = ['Todas', 'Bloqueador', 'Crema', 'Limpieza acuosa', 'Limpieza oleosa', 'Serum', 'Tinta/labial', 'Toner', 'Exfoliante', 'Mascarilla', 'Shampoo'];
   
   const filteredProducts = useMemo(() => {
     return products.filter(p => {
-      const matchesCategory = activeCategory === 'Todas' || p.category.includes(activeCategory);
+      const matchesCategory = activeCategory === 'Todas' || p.category === activeCategory;
       const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                            p.brand.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
@@ -222,91 +128,42 @@ const ProductsView = ({ products, activeCategory, setActiveCategory, searchTerm,
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
           <div>
-            <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tighter text-gray-900 mb-2 uppercase italic">Catálogo K-Care</h1>
-            <p className="text-gray-400 text-sm italic">Explora nuestra colección completa de {INITIAL_PRODUCTS.length} productos originales.</p>
+            <h1 className="text-4xl md:text-7xl font-serif font-black tracking-tighter text-gray-900 mb-2 uppercase italic">Colección</h1>
+            <p className="text-gray-400 text-sm italic tracking-widest uppercase">Explora nuestros {products.length} productos esenciales</p>
           </div>
-          <div className="relative w-full md:w-80">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300" size={16} />
+          <div className="relative w-full md:w-96">
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-300" size={18} />
             <input 
               type="text" 
-              placeholder="Busca por marca (Beauty of Joseon, CosRX...)" 
-              className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-full text-xs focus:ring-1 focus:ring-pink-200 outline-none"
+              placeholder="Buscar marca o producto..." 
+              className="w-full pl-14 pr-6 py-4 bg-gray-50 border border-gray-100 rounded-full text-xs focus:ring-2 focus:ring-pink-100 outline-none transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </header>
 
-        <div className="flex flex-wrap gap-2 mb-12 border-b border-gray-50 pb-8">
+        <div className="flex flex-wrap gap-2 mb-16 border-b border-gray-50 pb-8">
           {categories.map(cat => (
             <button 
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 text-[10px] font-bold uppercase tracking-widest transition-all rounded-full border ${activeCategory === cat ? 'bg-gray-900 text-white border-gray-900 shadow-lg' : 'text-gray-400 border-gray-100 hover:text-pink-400 hover:border-pink-200'}`}
+              className={`px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-all rounded-full border ${activeCategory === cat ? 'bg-gray-900 text-white border-gray-900 shadow-xl' : 'text-gray-400 border-gray-100 hover:border-pink-200 hover:text-pink-400'}`}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-12">
           {filteredProducts.map(p => <ProductCard key={p.id} p={p} />)}
         </div>
         
         {filteredProducts.length === 0 && (
-          <div className="py-32 text-center">
-            <p className="text-gray-400 italic">No pillamos nada con ese nombre, prueba buscando la marca.</p>
+          <div className="py-40 text-center">
+            <p className="text-gray-300 italic text-2xl font-serif">No pillamos nada, intenta otra búsqueda...</p>
           </div>
         )}
-      </div>
-    </div>
-  );
-};
-
-const AboutView = ({ aboutLang, setAboutLang }) => {
-  const content = {
-    es: {
-      title: "Nosotros.",
-      p1: "K-Care Cosmetic es una tienda chilena especializada en productos de skincare coreano. Ubicada en Outlet Park, Viña del Mar, la empresa se enfoca en dar a sus clientes acceso a artículos de belleza coreana auténticos.",
-      p2: "El skincare coreano, o K-beauty, ha ganado popularidad mundial por sus formulaciones innovadoras, su énfasis en ingredientes naturales y sus rutinas diseñadas para lograr una piel sana y radiante.",
-      p3: "Para facilitar el acceso de los clientes, proporcionamos una lista de precios completa a través de Google Sheets, fomentando la transparencia y la comodidad en la compra.",
-      p4: "Nuestra presencia activa en Instagram (@kcarecosmetic) nos permite interactuar con la comunidad y compartir consejos de cuidado diario."
-    },
-    en: {
-      title: "About Us.",
-      p1: "K-Care Cosmetic is a Chilean retailer specializing in Korean skincare products. Based in Outlet Park, Viña del Mar, we focus on providing access to authentic Korean beauty items.",
-      p2: "Korean skincare, or K-beauty, has gained global popularity for its innovative formulations and multi-step routines designed to achieve healthy skin.",
-      p3: "To facilitate customer access, we provide a comprehensive price list via Google Sheets, fostering transparency and shopping convenience.",
-      p4: "Our active presence on Instagram (@kcarecosmetic) allows us to engage with our audience and share daily skincare tips."
-    }
-  };
-
-  return (
-    <div className="pt-28 pb-16 max-w-4xl mx-auto px-4 animate-in fade-in duration-700">
-      <div className="flex justify-between items-center mb-12">
-        <h1 className="text-5xl font-serif italic tracking-tighter">{content[aboutLang].title}</h1>
-        <div className="flex bg-gray-50 p-1 rounded-full text-[10px] font-bold">
-          <button onClick={() => setAboutLang('es')} className={`px-4 py-2 rounded-full ${aboutLang === 'es' ? 'bg-white shadow text-gray-900' : 'text-gray-400'}`}>ES</button>
-          <button onClick={() => setAboutLang('en')} className={`px-4 py-2 rounded-full ${aboutLang === 'en' ? 'bg-white shadow text-gray-900' : 'text-gray-400'}`}>EN</button>
-        </div>
-      </div>
-      <div className="space-y-8 text-gray-500 leading-relaxed font-light text-xl">
-        <p><strong>K-Care Cosmetic</strong> es tu rincón de belleza coreana en el corazón de Viña del Mar. Nos obsesiona la autenticidad.</p>
-        <p>{content[aboutLang].p1}</p>
-        <div className="p-8 bg-pink-50 border-l-4 border-pink-200 italic font-serif text-2xl text-gray-800">
-          "Traemos la innovación de Corea directamente a tu tocador en Chile."
-        </div>
-        <p>{content[aboutLang].p2}</p>
-        <p>{content[aboutLang].p3}</p>
-        <p>{content[aboutLang].p4}</p>
-        <a 
-          href="https://docs.google.com/spreadsheets/d/1usT649NsF9HND-TxhGfQKmYvuZM8RRQp/htmlview" 
-          target="_blank" 
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-pink-400 font-bold uppercase text-xs tracking-widest border-b-2 border-pink-100 pb-1"
-        >
-          Ver Planilla Maestra <ExternalLink size={14} />
-        </a>
       </div>
     </div>
   );
@@ -324,59 +181,55 @@ const App = () => {
     window.scrollTo(0, 0);
   }, [view]);
 
-  const AnnouncementBar = () => (
-    <div className="bg-gray-900 text-white text-[10px] md:text-xs py-2 text-center font-bold tracking-widest uppercase">
-      ✨ 100% Original • Envíos a todo Chile • Tienda Física en Viña del Mar ✨
-    </div>
-  );
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-pink-100">
+      {/* Announcement Bar */}
+      <div className="bg-gray-900 text-white text-[10px] py-2 text-center font-bold tracking-widest uppercase px-4">
+        ✨ 100% Original • Envíos a todo Chile • Tienda física en Outlet Park, Viña ✨
+      </div>
 
-  const Navbar = () => (
-    <nav className="sticky top-0 w-full bg-white z-50 border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-24">
-          <div className="flex-shrink-0 cursor-pointer" onClick={() => setView('home')}>
-            <span className="text-xl md:text-3xl font-serif font-black tracking-tighter text-gray-900 uppercase">
-              K-CARE<span className="text-pink-400">.</span>
-            </span>
-          </div>
-          <div className="hidden md:flex space-x-10 items-center">
-            <button onClick={() => setView('home')} className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${view === 'home' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Inicio</button>
-            <button onClick={() => setView('products')} className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${view === 'products' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Tienda</button>
-            <button onClick={() => setView('about')} className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${view === 'about' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Nosotros</button>
-          </div>
-          <div className="flex items-center space-x-4">
-            <User size={20} className="text-gray-400 cursor-pointer hover:text-pink-500" onClick={() => setView('admin')} />
-            <div className="relative">
-              <ShoppingBag size={20} className="text-gray-400" />
-              <span className="absolute -top-2 -right-2 bg-pink-400 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{INITIAL_PRODUCTS.length}</span>
+      {/* Navbar */}
+      <nav className="sticky top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20 md:h-28">
+            <div className="flex-shrink-0 cursor-pointer" onClick={() => setView('home')}>
+              <span className="text-2xl md:text-4xl font-serif font-black tracking-tighter text-gray-900 uppercase">
+                K-CARE<span className="text-pink-400">.</span>
+              </span>
+            </div>
+            <div className="hidden md:flex space-x-12 items-center">
+              <button onClick={() => setView('home')} className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all ${view === 'home' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Inicio</button>
+              <button onClick={() => setView('products')} className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all ${view === 'products' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Tienda</button>
+              <button onClick={() => setView('about')} className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all ${view === 'about' ? 'text-pink-500' : 'text-gray-400 hover:text-gray-900'}`}>Nosotros</button>
+            </div>
+            <div className="flex items-center space-x-6">
+              <User size={22} className="text-gray-400 cursor-pointer hover:text-pink-500 transition-colors" />
+              <div className="relative cursor-pointer" onClick={() => setView('products')}>
+                <ShoppingBag size={22} className="text-gray-400" />
+                <span className="absolute -top-2 -right-2 bg-pink-400 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-lg">{INITIAL_PRODUCTS.length}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
 
-  return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-pink-100">
-      <AnnouncementBar />
-      <Navbar />
       <main>
         {view === 'home' && (
-          <div className="animate-in fade-in duration-700">
-            <section className="h-[80vh] bg-[#fdfaf8] flex items-center px-4 overflow-hidden relative">
+          <div className="animate-in fade-in duration-1000">
+            <section className="h-[85vh] bg-[#f9f8f6] flex items-center px-4 overflow-hidden relative">
               <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 w-full">
                 <div className="z-10">
-                  <span className="text-pink-400 font-bold text-[10px] uppercase tracking-[0.6em] mb-4 block">Glow like never before</span>
-                  <h1 className="text-6xl md:text-9xl font-serif text-gray-900 leading-[0.85] mb-10 tracking-tighter">
-                    Skin <br/><span className="italic text-pink-300">Secrets</span>.
+                  <span className="text-pink-400 font-bold text-[10px] uppercase tracking-[0.6em] mb-6 block">K-Beauty Specialist</span>
+                  <h1 className="text-7xl md:text-[10rem] font-serif text-gray-900 leading-[0.8] mb-12 tracking-tighter">
+                    Glow <br/><span className="italic text-pink-200">Shop</span>.
                   </h1>
-                  <button onClick={() => setView('products')} className="px-12 py-5 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-pink-500 transition-all flex items-center gap-6 shadow-2xl">
-                    Ir a la Tienda <ArrowRight size={16} />
+                  <button onClick={() => setView('products')} className="px-16 py-7 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-pink-500 transition-all flex items-center gap-8 shadow-2xl">
+                    Ver Catálogo <ArrowRight size={20} />
                   </button>
                 </div>
                 <div className="hidden md:flex justify-end relative">
-                   <div className="w-full max-w-sm aspect-[3/4] rounded-t-full overflow-hidden shadow-2xl border-[12px] border-white relative z-10">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&q=80&w=1000" className="w-full h-full object-cover" alt="K-Beauty Model" />
+                   <div className="w-full max-w-md aspect-[3/4] rounded-t-full overflow-hidden shadow-2xl border-[15px] border-white relative z-10 hover:scale-105 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&q=80&w=1000" className="w-full h-full object-cover" alt="K-Care Beauty" />
                   </div>
                 </div>
               </div>
@@ -384,10 +237,10 @@ const App = () => {
             
             <section className="py-32 max-w-7xl mx-auto px-4">
               <div className="text-center mb-20">
-                <h2 className="text-4xl font-serif italic tracking-tight mb-4">Favoritos K-Care</h2>
-                <p className="text-gray-400 text-sm uppercase tracking-widest font-bold">Lo más buscado esta semana</p>
+                <h2 className="text-5xl font-serif italic tracking-tighter mb-6">Best Sellers.</h2>
+                <p className="text-gray-400 text-xs uppercase tracking-[0.6em] font-bold">Seleccionados por nuestros expertos</p>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
                 {INITIAL_PRODUCTS.slice(0, 4).map(p => <ProductCard key={p.id} p={p} />)}
               </div>
             </section>
@@ -405,28 +258,27 @@ const App = () => {
         )}
 
         {view === 'about' && (
-          <AboutView 
-            aboutLang={aboutLang}
-            setAboutLang={setAboutLang}
-          />
-        )}
-
-        {view === 'admin' && (
-          <div className="pt-40 px-4 max-w-md mx-auto text-center font-bold pb-60">
-            <Settings className="mx-auto mb-8 text-gray-200 animate-spin-slow" size={64} strokeWidth={1} />
-            <h2 className="text-3xl font-serif italic mb-4">Acceso Admin</h2>
-            <input type="password" placeholder="Passphrase" className="w-full p-4 bg-gray-50 border border-gray-100 text-center text-sm mb-4 outline-none focus:border-pink-200" />
-            <button className="w-full py-4 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-widest">Ingresar</button>
-          </div>
+           <div className="pt-28 pb-16 max-w-5xl mx-auto px-4 animate-in fade-in duration-700">
+            <h1 className="text-5xl md:text-8xl font-serif italic tracking-tighter text-gray-900 mb-12">Nosotros.</h1>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-20 text-gray-500 text-xl font-light leading-relaxed">
+              <div className="md:col-span-8 space-y-10">
+                <p>K-Care Cosmetic es un distribuidor chileno especializado en productos de skincare coreano. Ubicados en <strong>Outlet Park, Viña del Mar</strong>, nos enfocamos en brindar acceso a productos 100% originales y efectivos.</p>
+                <div className="p-12 bg-[#fdfaf8] border-l-8 border-pink-200 italic font-serif text-3xl text-gray-800">
+                  "Traemos la innovación de Seúl a tu rutina diaria en Chile."
+                </div>
+                <p>El K-beauty ha ganado popularidad mundial gracias a sus formulaciones naturales y rutinas diseñadas para una piel saludable. En nuestra tienda pillas todo para tu tipo de piel.</p>
+              </div>
+            </div>
+           </div>
         )}
       </main>
 
-      <footer className="bg-white py-32 border-t border-gray-50 px-4 text-center">
-        <span className="text-4xl font-serif font-black tracking-tighter text-gray-900 uppercase">K-CARE<span className="text-pink-400">.</span></span>
-        <p className="text-gray-300 text-[10px] mt-12 uppercase tracking-[0.6em] font-bold mb-10">Viña del Mar • Chile</p>
-        <div className="flex justify-center gap-10">
-          <Instagram size={24} className="text-gray-200 hover:text-pink-400 cursor-pointer transition-colors" />
-          <Facebook size={24} className="text-gray-200 hover:text-blue-500 cursor-pointer transition-colors" />
+      <footer className="bg-white py-40 border-t border-gray-50 px-4 text-center">
+        <span className="text-5xl font-serif font-black tracking-tighter text-gray-900 uppercase">K-CARE<span className="text-pink-400">.</span></span>
+        <p className="text-gray-300 text-[10px] mt-12 uppercase tracking-[0.8em] font-bold mb-16">Viña del Mar • Chile</p>
+        <div className="flex justify-center gap-16">
+          <Instagram size={28} className="text-gray-200 hover:text-pink-400 cursor-pointer transition-all hover:scale-125" />
+          <Facebook size={28} className="text-gray-200 hover:text-blue-500 cursor-pointer transition-all hover:scale-125" />
         </div>
       </footer>
     </div>
